@@ -13,7 +13,7 @@ const Home = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        axios.get("http://localhost:4000/project/get-all")
+        axios.get("https://ai-code-review-2xol.onrender.com/project/get-all")
             .then((res) => {
                 setProjects(res.data)
             }
@@ -30,7 +30,7 @@ const Home = () => {
     const handleDeleteProject = async (project, e) => {
         e.stopPropagation();
         try {
-            const response = await axios.delete("https://ai-code-review-vaub.onrender.com/project/delete-room", {
+            const response = await axios.delete("https://ai-code-review-2xol.onrender.com/project/delete-room", {
                 data: { projectName: project.projectName }
             });
             if (response.status === 200) {
