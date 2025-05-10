@@ -59,7 +59,7 @@ const Home = () => {
             }
         } catch (error) {
             console.error(error);
-            alert(error.response?.data?.msg || 'Failed to authenticate');
+            alert(error.response?.data?.msg || 'Failed to Authenticate');
         }
     }
 
