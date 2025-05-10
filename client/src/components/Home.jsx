@@ -30,7 +30,7 @@ const Home = () => {
     const handleDeleteProject = async (project, e) => {
         e.stopPropagation();
         try {
-            const response = await axios.delete("http://localhost:4000/project/delete-room", {
+            const response = await axios.delete("https://ai-code-review-vaub.onrender.com/project/delete-room", {
                 data: { projectName: project.projectName }
             });
             if (response.status === 200) {
@@ -46,7 +46,7 @@ const Home = () => {
     const handleAuthSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:4000/project/join-room", {
+            const response = await axios.post("https://ai-code-review-vaub.onrender.com/project/join-room", {
                 name: selectedProject.projectName,
                 password: authForm.password,
                 member: authForm.memberName,

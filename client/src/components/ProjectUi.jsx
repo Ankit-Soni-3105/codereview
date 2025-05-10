@@ -43,7 +43,7 @@ const ProjectUi = () => {
     }
 
     useEffect(() => {
-        const io = SocketIo("http://localhost:4000", {
+        const io = SocketIo("https://ai-code-review-vaub.onrender.com", {
             query: {
                 project: params.id
             }

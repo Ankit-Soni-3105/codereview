@@ -10,7 +10,7 @@ const Project = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        axios.post("http://localhost:4000/project/create-project", {
+        axios.post("https://ai-code-review-vaub.onrender.com/project/create-project", {
             projectName,
             password
         }).then((res) => {
