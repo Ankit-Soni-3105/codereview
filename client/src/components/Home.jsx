@@ -46,7 +46,7 @@ const Home = () => {
     const handleAuthSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("https://ai-code-review-vaub.onrender.com/project/join-room", {
+            const response = await axios.post("https://ai-code-review-2xol.onrender.com/project/join-room", {
                 name: selectedProject.projectName,
                 password: authForm.password,
                 member: authForm.memberName,
