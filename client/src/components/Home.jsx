@@ -84,7 +84,7 @@ const Home = () => {
 
                             <div className="allporj flex flex-col items-center mt-2 border-2 border-[#24CFA6] rounded-xl p-4">
                                 <h2 className='text-2xl font-semibold'>
-                                    Here are your All Rooms
+                                    All Rooms
                                 </h2>
                                 <div className="projects">
 
