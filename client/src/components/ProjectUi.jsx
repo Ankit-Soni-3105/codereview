@@ -129,7 +129,7 @@ const ProjectUi = () => {
                         <button
                             onClick={() => navigate("/")}
                             className={`px-4 py-2 rounded ${activeSection === 'review' ? 'bg-[#24CFA6] text-white' : 'text-[#24CFA6]'}`}>
-                            close
+                            Go Back Room
                         </button>
                     </div>
                 </div>
