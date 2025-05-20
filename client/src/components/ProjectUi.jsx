@@ -127,7 +127,7 @@ const ProjectUi = () => {
                             Review
                         </button>
                         <button
-                            onClick={() => navigate("/")}
+                            onClick={() => navigate("/room-creation")}
                             className={`px-4 py-2 rounded ${activeSection === 'review' ? 'bg-[#24CFA6] text-white' : 'text-[#24CFA6]'}`}>
                             Go Back Room
                         </button>
