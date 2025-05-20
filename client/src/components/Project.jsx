@@ -15,7 +15,8 @@ const Project = () => {
             password
         }).then((res) => {
             // console.log(res.data )
-            navigate("/")
+            // navigate("/home-section")
+            navigate("/room-creation")
         }
         ).catch((err) => {
             console.log(err)
@@ -65,7 +66,7 @@ const Project = () => {
 
                 <div className="w-full flex gap-5 justify-end items-center mt-4">
                     <button 
-                    onClick={() => navigate("/")}
+                    onClick={() => navigate("/home-section")}
                     className='bg-[#24CFA6] text-black font-bold py-2 px-4 rounded-xl hover:bg-[#b5ffee] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'>
                         Cancel
                     </button>

@@ -1,74 +1,55 @@
 import React, { useState } from 'react'
-import { navLinks, styles } from './index';
-import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-    const [active, setActive] = useState("");
-    const [toggle, setToggle] = useState(false);
-    return (
-        <nav
-            className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-[200] bg-primary`}
-        >
-            <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
-                <Link
-                    to="/"
-                    className="flex items-center gap-2"
-                    onClick={() => {
-                        setActive("");
-                        window.scrollTo(0, 0);
-                    }}
-                >
-                    <img src={""} alt="logo" className="w-10 h-10 object-contain" />
-                    <p className="text-white text-[18px] font-bold cursor-pointer">
-                        Ankit Soni &nbsp;
-                        {/* <span className="text-blue-500">
-              | <span className="text-white">M</span><span className="text-white">E</span><span className="text-white">R</span><span className="text-white">N</span> STACK DEVELOPER
-            </span> */}
-                    </p>
-                </Link>
-                <ul className="list-none hidden sm:flex flex-row gap-10">
-                    {navLinks.map((link) => (
-                        <li
-                            key={link.id}
-                            className={`${active === link.title ? "text-white" : "text-secondary"
-                                } hover:text-white text-[18px] font-medium cursor-pointer`}
-                            onClick={() => setActive(link.title)}
-                        >
-                            <a href={`#${link.id}`}>{link.title}</a>
-                        </li>
-                    ))}
-                </ul>
+    const [isOpen, setIsOpen] = useState(false);
 
-                <div className="sm:hidden flex flex-1 justify-end items-center">
-                    <img
-                        src={toggle ? close : menu}
-                        alt="menu"
-                        className="w-[28px] h-[28px] object-contain cursor-pointer"
-                        onClick={() => setToggle(!toggle)}
-                    />
-                    <div
-                        className={`${toggle ? "flex" : "hidden"
-                            } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
-                    >
-                        <ul className="list-none flex justify-end items-start flex-col gap-4">
-                            {navLinks.map((link) => (
-                                <li
-                                    key={link.id}
-                                    className={`${active === link.title ? "text-white" : "text-secondary"
-                                        } font-poppins font-medium cursor-pointer text-[16px]`}
-                                    onClick={() => {
-                                        setActive(link.title);
-                                        setToggle(!toggle);
-                                    }}
-                                >
-                                    <a href={`#${link.id}`}>{link.title}</a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
+
+    return (
+        <div className="navbar px-4 py-2 text-black rounded-[1.8vw]">
+            <div className="flex justify-between items-center">
+                <div className="px-4 py-1 flex items-center">
+                    {/* <img src="/logo.png" alt="" className="h-12 w-12 mr-2 border rounded-full" /> */}
+                    <h1 className="text-lg font-bold">AI Code Review</h1>
                 </div>
+
+                {/* Mobile menu button */}
+                <button
+                    onClick={toggleMenu}
+                    className="md:hidden text-black focus:outline-none"
+                >
+                    {isOpen ? (
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    ) : (
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    )}
+                </button>
+
+                {/* Desktop navigation */}
+                <nav className="hidden md:flex gap-16">
+                    <button className="text-xl font-bold hover:text-gray-400">Home</button>
+                    <button className="text-xl font-bold hover:text-gray-400">Dashboard</button>
+                    <button className="text-xl font-bold hover:text-gray-400">Explore</button>
+                    <button className="text-xl font-bold hover:text-gray-400">About</button>
+                </nav>
             </div>
-        </nav>
+
+            {/* Mobile navigation */}
+            {isOpen && (
+                <nav className="md:hidden mt-4 flex flex-col space-y-4">
+                    <button className="text-xl font-bold hover:text-gray-400 py-2">Home</button>
+                    <button className="text-xl font-bold hover:text-gray-400 py-2">Dashboard</button>
+                    <button className="text-xl font-bold hover:text-gray-400 py-2">Explore</button>
+                    <button className="text-xl font-bold hover:text-gray-400 py-2">About</button>
+                </nav>
+            )}
+        </div>
     )
 }
 

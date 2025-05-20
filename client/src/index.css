@@ -2,22 +2,24 @@
 @import 'remixicon/fonts/remixicon.css';
 
 
-body{
+body {
   /* background-color: #24CFA6; */
-  background-color: #000;
-  color: white;
+  /* background-color: #000;
+  color: white; */
 }
-.homeSection{
+
+.homeSection {
   background-image: url("../public/ai.png");
   background-size: cover;
   background-position: center;
 }
 
-.upperBox{
+.upperBox {
   /* background: #000000d7; */
-  background: linear-gradient(180deg,rgba(0, 0, 0, 0.801), rgba(0, 0, 0, 0.874), rgba(0, 0, 0, 0.756));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.801), rgba(0, 0, 0, 0.874), rgba(0, 0, 0, 0.756));
 }
-.parant form{
+
+.parant form {
   border: 0.2vw solid #24CFA6;
   color: #24cfa7;
 }
@@ -28,7 +30,7 @@ body{
   left: 50%;
 }
 
-.chat .messages{
+.chat .messages {
   color: black;
   width: 90%;
   height: 88%;
@@ -40,14 +42,14 @@ body{
   left: 50%;
   overflow-y: auto;
   top: 0;
-  padding-bottom: 5rem; 
+  padding-bottom: 5rem;
 }
 
 .chat .messages::-webkit-scrollbar {
   display: none;
 }
 
-.chat .messages span{
+.chat .messages span {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   margin-bottom: 1rem;
@@ -59,7 +61,7 @@ body{
   /* background-color: #24CFA6; */
 }
 
-.del{
+.del {
   transform: translateY(-50%);
 }
 
@@ -81,7 +83,7 @@ body{
 }
 
 .code .language-selector select {
-  background-color: #111111;  
+  background-color: #111111;
   color: #ffffff;
   border: none;
   padding: 5px 5px;
@@ -102,7 +104,78 @@ body{
   color: #ffffff;
 }
 
-.review{
+.review {
   /* overflow-x: hidden; */
   overflow-y: auto;
+}
+
+
+
+.homeDiv {
+  box-shadow: 0 0 1vw 10vw rgba(0, 0, 0, 0.5);
+}
+
+.navbar {
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.5);
+}
+
+.shadowBar {
+  box-shadow: 0 0 25px 1px rgba(0, 0, 0, 0.5);
+}
+
+.shadowBarbut {
+  box-shadow: 0 0 2px 0.0001px rgba(0, 0, 0, 0.5);
+}
+
+/* .roomscontainer{
+  overflow-y: auto;
+} */
+
+@media (max-width: 600px) {
+  .homeDiv {
+    padding: 1vw;
+    border-radius: 3vw;
+  }
+
+  .navbar {
+    margin-top: 3vw;
+    padding: 2vw;
+    font-size: 2vw;
+    border-radius: 10vw;
+    gap: 1vw;
+  }
+
+  .navbar button {
+    padding: 0 2vw;
+    font-size: 3vw;
+  }
+
+  .hc {
+    padding: 3vw;
+  }
+
+  .homeContent {
+    height: 60vh;
+    border-radius: 5vw;
+    margin-top: 12vw;
+  }
+
+  .head {
+    font-size: 4vw;
+  }
+
+  .homeContent .headingAI {
+    font-size: 6vw;
+  }
+
+  .headingAI span {
+    font-size: 6vw;
+  }
+
+  .homeContent .shadowBarbut {
+    padding: 2vw 6vw;
+    font-size: 4vw;
+    font-weight: 600;
+    color: white;
+  }
 }

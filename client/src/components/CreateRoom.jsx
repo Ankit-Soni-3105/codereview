@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
-const Home = () => {
-    const [projects, setProjects] = useState([]);
+const CreateRoom = () => {
     const [showModal, setShowModal] = useState(false);
     const [selectedProject, setSelectedProject] = useState(null);
     const [authForm, setAuthForm] = useState({
@@ -11,16 +9,6 @@ const Home = () => {
         password: ''
     });
     const navigate = useNavigate()
-
-    useEffect(() => {
-        axios.get("https://ai-code-review-2xol.onrender.com/project/get-all")
-            .then((res) => {
-                setProjects(res.data)
-            }
-            ).catch((err) => {
-                console.log(err)
-            })
-    }, [])
 
     const handleProjectClick = (project) => {
         setSelectedProject(project);
@@ -65,60 +53,28 @@ const Home = () => {
 
     return (
         <>
-            <div className="w-full min-h-screen flex flex-col items-center justify-center">
-                <div className="homeSection w-full h-screen md:min-h-[47.8vw] bg-cover bg-center bg-no-repeat">
-                    <div className={`upperBox h-full `}>
-                        <div className="px-8 py-4 ">
-                            <h1 className='text-[#24CFA6] font-medium text-2xl'>
-                                Rooms
-                            </h1>
-                        </div>
-                        <div className="button p-8">
-                            <button
-                                onClick={() => {
-                                    navigate('/project-create')
-                                }}
-                                className='px-6 py-4 bg-[#24CFA6] text-black font-bold cursor-pointer rounded-xl'>
-                                Create Your New Room
-                            </button>
 
-                            <div className="allporj flex flex-col items-center mt-2 border-2 border-[#24CFA6] rounded-xl p-4">
-                                <h2 className='text-2xl font-semibold text-white'>
-                                    All Rooms
-                                </h2>
-                                <div className="projects">
-                                    {projects.length == 0 ? <div>
-                                        <p>No Created any Rooms</p>
-                                    </div> : <div className="porject mt-5 flex flex-col items-center gap-2 justify-center">
-                                        {projects.map((project, idx) => {
-                                            return (
-                                                <div className='flex gap-3 relative items-center' key={idx}>
-                                                    <div
-                                                        key={idx}
-                                                        onClick={() => handleProjectClick(project)}
-                                                        className="text-xl cursor-pointer px-8 py-1 uppercase bg-[#3B3B3F] rounded-lg" >
-                                                        {project.projectName}
-                                                    </div>
-                                                    <div
-                                                        className="roomDelete cursor-pointer relative uppercase rounded-full"
-                                                        onClick={(e) => handleDeleteProject(project, e)} >
-                                                        <i className="del px-2 py-1 bg-[#3B3B3F] rounded-full ri-delete-bin-4-line absolute text-whitef"></i>
-                                                    </div>
-                                                </div>
-                                            )
-                                        })}
-                                    </div>}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div className="shadowBar w-fit mt-16 py-2 px-4 rounded-xl">
+                <div className="text-xl font-semibold flex gap-4 flex-wrap">
+                    <h1>Create a New Room</h1>
+                    <i>three</i>
+                </div>
+                <div className="buttonn flex flex-wrap justify-end">
+                    <button
+                        onClick={() => {
+                            navigate('/project-create')
+                        }}
+                        className='bg-[#24CFA6] shadowBarbut text-white py-2 px-8 rounded hover:bg-blue-600 transition duration-200 mt-8'
+                    >
+                        Create
+                    </button>
                 </div>
             </div>
 
             {/* Authentication Modal */}
             {showModal && (
                 <div className="fixed inset-0 bg-black px-5 bg-opacity-50 flex items-center justify-center z-50">
-                    <div className="bg-[#1F1F23] p-8 rounded-xl border-2 border-[#24CFA6] w-96">
+                    <div className="bg-[#1F1F23] shadowBar p-8 rounded-xl border-2 border-[#24CFA6] w-96">
                         <h3 className="text-xl font-semibold mb-4 text-[#24CFA6]">
                             Join Room in {selectedProject?.projectName}
                         </h3>
@@ -179,4 +135,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default CreateRoom
